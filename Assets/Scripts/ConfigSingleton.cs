@@ -1,40 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public struct NetworkConfig
-{
-    public string address;
-    public string port;
-    public NetworkConfig(string address, string port)
-    {
-        this.address = address;
-        this.port = port;
-    }
-}
+using SharedTypes;
 
 public class ConfigSingleton {
     //Singleton instance
-    private static ConfigSingleton instance;
+    private static ConfigSingleton _instance;
 
     //Variables:
-    private NetworkConfig networkConfig = new NetworkConfig();
+    private MyNetworkConfig _networkConfig = new MyNetworkConfig();
 
     //Instance getter
-    public static ConfigSingleton getInstance()
+    public static ConfigSingleton GetInstance()
     {
-        if (instance == null)
-            instance = new ConfigSingleton();
-        return instance;
+        return _instance ?? (_instance = new ConfigSingleton());
     }
 
-    public NetworkConfig getNetworkConfig()
+    public MyNetworkConfig GetNetworkConfig()
     {
-        return this.networkConfig;
+        return this._networkConfig;
     }
 
-    public void setNetworkConfig(NetworkConfig networkConfig)
+    public void SetNetworkConfig(MyNetworkConfig networkConfig)
     {
-        this.networkConfig = networkConfig;
+        _networkConfig = networkConfig;
     }
 }
