@@ -1,0 +1,3 @@
+[submodule "Assets/Scripts/Shared"]
+	path = Assets/Scripts/Shared
+	url = git@github.com:blali733/FittsCommon.git
