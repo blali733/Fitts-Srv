@@ -9,16 +9,8 @@ using UnityEngine.Networking;
 [Serializable]
 public class ConfigContent
 {
-    public string ServerIp;
     public string ServerPort;
-
-    public ConfigContent() { }
-
-    public ConfigContent(string serverIp, string serverPort)
-    {
-        ServerIp = serverIp;
-        ServerPort = serverPort;
-    }
+    public string DBDomain;
 }
 
 public class ConfigLoader : MonoBehaviour
@@ -30,7 +22,8 @@ public class ConfigLoader : MonoBehaviour
         string config = LoadFile();
         ConfigContent configuration = JsonUtility.FromJson<ConfigContent>(config);
         ConfigSingleton configInstance = ConfigSingleton.GetInstance();
-        configInstance.SetMyNetworkConfig(new MyNetworkConfig(configuration.ServerIp, configuration.ServerPort));
+        configInstance.SetMyNetworkConfig(new MyNetworkConfig("0.0.0.0", configuration.ServerPort));
+        configInstance.DBDomain = configuration.DBDomain;
         NetworkManager.singleton.networkPort = int.Parse(configuration.ServerPort);
         NetworkManager.singleton.StartServer();
         Debug.Log(string.Format("Server started on port: {0}",NetworkManager.singleton.networkPort));

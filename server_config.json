@@ -1,1 +1,4 @@
-{"ServerIp":"127.0.0.1","ServerPort":"10000"}
+{
+	"ServerPort":"10000",
+	"DBDomain":"http://192.168.1.167/unitydb"
+}

@@ -8,8 +8,9 @@ public class ConfigSingleton {
     private static ConfigSingleton _instance;
 
     //Variables:
-    private MyNetworkConfig _networkConfig = new MyNetworkConfig();
-
+    private MyNetworkConfig _networkConfig;
+    public string DBDomain { get; set; }
+    
     //Instance getter
     public static ConfigSingleton GetInstance()
     {
