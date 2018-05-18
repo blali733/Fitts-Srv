@@ -155,8 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cf4b23698065a48a7c6e331f082d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addUserURL: http://blali733.dynu.com/unitydb/add_user.php?
-  listUserURL: http://blali733.dynu.com/unitydb/list_user.php
+  domain: http://192.168.1.167/unitydb/
 --- !u!114 &1738734594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +177,7 @@ MonoBehaviour:
   m_MaxDelay: 0.01
   m_LogLevel: 2
   m_PlayerPrefab: {fileID: 0}
-  m_AutoCreatePlayer: 1
+  m_AutoCreatePlayer: 0
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
   m_OnlineScene: 
