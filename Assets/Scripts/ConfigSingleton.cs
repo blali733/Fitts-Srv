@@ -16,12 +16,12 @@ public class ConfigSingleton {
         return _instance ?? (_instance = new ConfigSingleton());
     }
 
-    public MyNetworkConfig GetNetworkConfig()
+    public MyNetworkConfig GetMyNetworkConfig()
     {
         return this._networkConfig;
     }
 
-    public void SetNetworkConfig(MyNetworkConfig networkConfig)
+    public void SetMyNetworkConfig(MyNetworkConfig networkConfig)
     {
         _networkConfig = networkConfig;
     }

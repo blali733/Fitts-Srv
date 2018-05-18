@@ -16,7 +16,7 @@ public class ConfigContent
     public ConfigContent(string serverIp, string serverPort)
     {
         ServerIp = serverIp;
-        this.ServerPort = serverPort;
+        ServerPort = serverPort;
     }
 }
 
