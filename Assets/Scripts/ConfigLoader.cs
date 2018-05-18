@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using SharedTypes;
+using UnityEngine.Networking;
 
 [Serializable]
 public class ConfigContent
@@ -30,10 +31,13 @@ public class ConfigLoader : MonoBehaviour
         ConfigContent configuration = JsonUtility.FromJson<ConfigContent>(config);
         ConfigSingleton configInstance = ConfigSingleton.GetInstance();
         configInstance.SetMyNetworkConfig(new MyNetworkConfig(configuration.ServerIp, configuration.ServerPort));
+        NetworkManager.singleton.networkPort = int.Parse(configuration.ServerPort);
+        NetworkManager.singleton.StartServer();
+        Debug.Log(string.Format("Server started on port: {0}",NetworkManager.singleton.networkPort));
     }
 
     private string LoadFile()
     {
-        return File.ReadAllText("./config.json");
+        return File.ReadAllText("./server_config.json");
     }
 }
