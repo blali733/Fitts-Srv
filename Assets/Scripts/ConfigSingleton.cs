@@ -6,6 +6,12 @@ using SharedTypes;
 public class ConfigSingleton {
     //Singleton instance
     private static ConfigSingleton _instance;
+    private List<TestCase> _testCases;
+
+    public List<TestCase> TestCases
+    {
+        get { return _testCases; }
+    }
 
     //Variables:
     private MyNetworkConfig _networkConfig;
@@ -15,6 +21,14 @@ public class ConfigSingleton {
     public static ConfigSingleton GetInstance()
     {
         return _instance ?? (_instance = new ConfigSingleton());
+    }
+
+    private ConfigSingleton()
+    {
+        _testCases = new List<TestCase>
+        {
+            new TestCase(20, ColorMode.StaticBlue, DisplayMode.ConstantUnitSize, 75, 125, DistanceMode.Random, 0)
+        };
     }
 
     public MyNetworkConfig GetMyNetworkConfig()
