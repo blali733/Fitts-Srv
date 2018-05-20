@@ -24,9 +24,9 @@ public class ConfigLoader : MonoBehaviour
         ConfigSingleton configInstance = ConfigSingleton.GetInstance();
         configInstance.SetMyNetworkConfig(new MyNetworkConfig("0.0.0.0", configuration.ServerPort));
         configInstance.DBDomain = configuration.DBDomain;
-        NetworkManager.singleton.networkPort = int.Parse(configuration.ServerPort);
-        NetworkManager.singleton.StartServer();
-        Debug.Log(string.Format("Server started on port: {0}",NetworkManager.singleton.networkPort));
+        NetworkManagerEvents.singleton.networkPort = int.Parse(configuration.ServerPort);
+        NetworkManagerEvents.singleton.StartServer();
+        
     }
 
     private string LoadFile()

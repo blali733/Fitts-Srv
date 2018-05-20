@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cf4b23698065a48a7c6e331f082d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  domain: http://192.168.1.167/unitydb/
 --- !u!114 &1738734594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +163,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1738734591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -822479833, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: a4d4563f17419884cbe3ea63ca483129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
