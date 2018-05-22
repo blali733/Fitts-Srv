@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using UnityEngine;
 using SharedTypes;
 
@@ -25,10 +27,15 @@ public class ConfigSingleton {
 
     private ConfigSingleton()
     {
-        _testCases = new List<TestCase>
+        MongoDBConnector conn = MongoDBConnector.GetInstance();
+        _testCases = new List<TestCase>();
+        var db = conn.GetDatabase();
+        var collection = db.GetCollection<BsonDocument>("testCases");
+        foreach (var item in collection.Find(new BsonDocument()).Project(Builders<BsonDocument>.Projection.Exclude("_id")).ToList())
         {
-            new TestCase(20, ColorMode.StaticBlue, DisplayMode.ConstantUnitSize, 75, 125, DistanceMode.Random, 0)
-        };
+            var jsonString = item.ToJson();
+            _testCases.Add(JsonUtility.FromJson<TestCase>(jsonString));
+        }
     }
 
     public MyNetworkConfig GetMyNetworkConfig()
