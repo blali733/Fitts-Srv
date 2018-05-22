@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-public class MongoDBConnector : MonoBehaviour
+public class MongoDBConnector
 {
     private MongoClient _client;
     private static MongoDBConnector _instance;
@@ -16,7 +17,8 @@ public class MongoDBConnector : MonoBehaviour
 
     private MongoDBConnector()
     {
-        _client = new MongoClient("mongodb://192.168.1.11:27017");
+        var address = JsonUtility.FromJson<ConfigContent>(File.ReadAllText("./server_config.json")).DBDomain;
+        _client = new MongoClient($"mongodb://{address}:27017");
     }
 
     public IMongoDatabase GetDatabase()
