@@ -18,7 +18,7 @@ public class MongoDBConnector
     private MongoDBConnector()
     {
         var address = JsonUtility.FromJson<ConfigContent>(File.ReadAllText("./server_config.json")).DBDomain;
-        _client = new MongoClient($"mongodb://{address}:27017");
+        _client = new MongoClient($"mongodb://FittsApp:ppAsttiF@{address}:27017/fitts");
     }
 
     public IMongoDatabase GetDatabase()
