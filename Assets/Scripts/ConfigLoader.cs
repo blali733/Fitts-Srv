@@ -11,6 +11,7 @@ public class ConfigContent
 {
     public string ServerPort;
     public string DBDomain;
+    public string TestGroup;
 }
 
 public class ConfigLoader : MonoBehaviour
@@ -24,6 +25,7 @@ public class ConfigLoader : MonoBehaviour
         ConfigSingleton configInstance = ConfigSingleton.GetInstance();
         configInstance.SetMyNetworkConfig(new MyNetworkConfig("0.0.0.0", configuration.ServerPort));
         configInstance.DBDomain = configuration.DBDomain;
+        configInstance.TestGroup = configuration.TestGroup;
         NetworkManagerEvents.singleton.networkPort = int.Parse(configuration.ServerPort);
         NetworkManagerEvents.singleton.StartServer();
         

@@ -23,9 +23,43 @@ public class NetworkManagerEvents : NetworkManager
     {
         Debug.Log($"Server started on port: {singleton.networkPort}");
         transform.GetComponent<MainLoop>().TestCaseSetup();
-        NetworkServer.RegisterHandler(MyMsgType.TargetDatas, GetTargetDatas);
-        NetworkServer.RegisterHandler(MyMsgType.TargetInfos, GetTargetInfos);
+        NetworkServer.RegisterHandler(MyMsgType.TargetDatas, GotTargetDatas);
+        NetworkServer.RegisterHandler(MyMsgType.TargetInfos, GotTargetInfos);
         NetworkServer.RegisterHandler(MyMsgType.DataRequest, DataBroker);
+        NetworkServer.RegisterHandler(MyMsgType.NewUserData, AddUser);
+    }
+
+    public void AddUser(NetworkMessage message)
+    {
+        StoredUserMessage msg = message.ReadMessage<StoredUserMessage>();
+        StoredUser user = msg.User;
+        user.TestGroup = _config.TestGroup;
+        user.Code = GenRandomCode();
+        var db = MongoDBConnector.GetInstance().GetDatabase();
+        var collection = db.GetCollection<BsonDocument>("Users");
+        var document = new BsonDocument
+        {
+            {"Name", user.Name},
+            {"TestGroup", user.TestGroup},
+            {"Code", user.Code },
+            {"Questionarie", new BsonDocument{
+                    {"AgeGroup", user.Results.AgeGroup},
+                    {"TouchFrequency", user.Results.TouchFrequency},
+                    {"None", user.Results.None},
+                    {"Smaller5", user.Results.Smaller5},
+                    {"Smaller11", user.Results.Smaller11},
+                    {"Greater11", user.Results.Greater11},
+                    {"Activities", user.Results.Activities}
+                }
+            }
+        };
+        collection.InsertOne(document);
+    }
+
+    public int GenRandomCode()
+    {
+        // "random"
+        return 1111;
     }
 
     public void DataBroker(NetworkMessage message)
@@ -36,8 +70,8 @@ public class NetworkManagerEvents : NetworkManager
             case RequestType.UserList:
                 List<User> userList = new List<User>();
                 var db = MongoDBConnector.GetInstance().GetDatabase();
-                var collection = db.GetCollection<BsonDocument>("users");
-                foreach (var item in collection.Find(new BsonDocument()).Project(Builders<BsonDocument>.Projection.Exclude("_id").Include("name")).ToList())
+                var collection = db.GetCollection<BsonDocument>("Users");
+                foreach (var item in collection.Find(new BsonDocument{{"TestGroup", _config.TestGroup}}).Project(Builders<BsonDocument>.Projection.Exclude("_id").Include("Name")).ToList())
                 {
                     var jsonString = item.ToJson();
                     userList.Add(JsonUtility.FromJson<User>(jsonString));
@@ -47,14 +81,56 @@ public class NetworkManagerEvents : NetworkManager
         }
     }
 
-    public void GetTargetDatas(NetworkMessage message)
+    public void GotTargetDatas(NetworkMessage message)
     {
-
+        RawTargetDatasMessage msg = message.ReadMessage<RawTargetDatasMessage>();
+        List<List<TargetData>> targetDatas = msg.Content.TargetDatas;
+        string user = msg.Content.User;
+        var db = MongoDBConnector.GetInstance().GetDatabase();
+        var collection = db.GetCollection<BsonDocument>("TargetDatas");
+        var userCollection = db.GetCollection<BsonDocument>("Users");
+        BsonArray arr = new BsonArray();
+        foreach (var list in targetDatas)
+        {
+            BsonArray innerArr = new BsonArray();
+            foreach (var targetData in list)
+            {
+                innerArr.Add(new BsonDocument(targetData.ToBsonDocument()));
+            }
+            arr.Add(innerArr);
+        }
+        BsonDocument document = new BsonDocument
+        {
+            {"UserName", user},
+            {"TargetDatas", arr}
+        };
+        collection.InsertOne(document);
     }
 
-    public void GetTargetInfos(NetworkMessage message)
+    public void GotTargetInfos(NetworkMessage message)
     {
-
+        TargetInfosMessage msg = message.ReadMessage<TargetInfosMessage>();
+        List<List<TargetInfo>> targetInfos = msg.Content.TargetInfos;
+        string user = msg.Content.User;
+        var db = MongoDBConnector.GetInstance().GetDatabase();
+        var collection = db.GetCollection<BsonDocument>("TargetInfos");
+        var userCollection = db.GetCollection<BsonDocument>("Users");
+        BsonArray arr = new BsonArray();
+        foreach (var list in targetInfos)
+        {
+            BsonArray innerArr = new BsonArray();
+            foreach (var targetInfo in list)
+            {
+                innerArr.Add(new BsonDocument(targetInfo.ToBsonDocument()));
+            }
+            arr.Add(innerArr);
+        }
+        BsonDocument document = new BsonDocument
+        {
+            {"UserName", user},
+            {"TargetInfos", arr}
+        };
+        collection.InsertOne(document);
     }
 
     public override void OnServerConnect(NetworkConnection conn)

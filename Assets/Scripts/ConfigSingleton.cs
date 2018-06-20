@@ -9,6 +9,7 @@ public class ConfigSingleton {
     //Singleton instance
     private static ConfigSingleton _instance;
     private List<TestCase> _testCases;
+    public string TestGroup { get; set; }
 
     public List<TestCase> TestCases
     {
