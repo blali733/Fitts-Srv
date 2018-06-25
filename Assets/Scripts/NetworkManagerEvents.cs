@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using SharedTypes;
 using SharedMessages;
+using UnityEngine.Networking.NetworkSystem;
 
 public class NetworkManagerEvents : NetworkManager
 {
@@ -27,6 +28,51 @@ public class NetworkManagerEvents : NetworkManager
         NetworkServer.RegisterHandler(MyMsgType.TargetInfos, GotTargetInfos);
         NetworkServer.RegisterHandler(MyMsgType.DataRequest, DataBroker);
         NetworkServer.RegisterHandler(MyMsgType.NewUserData, AddUser);
+        NetworkServer.RegisterHandler(MyMsgType.DeviceData, CheckDevice);
+    }
+
+    public void CheckDevice(NetworkMessage message)
+    {
+        DeviceDataMessage msg = message.ReadMessage<DeviceDataMessage>();
+        DeviceIdentification deviceIdentification = msg.DeviceIdentification;
+        var db = MongoDBConnector.GetInstance().GetDatabase();
+        var collection = db.GetCollection<BsonDocument>("Devices");
+        var results = collection.Find(new BsonDocument {{"DevId", deviceIdentification.DevId}}).ToList();
+        int addr = -1;
+        if (results.Count > 0)
+        {
+            foreach (var result in results)
+            {
+                if (result["ScreenWidth"].AsInt32 == deviceIdentification.ScreenWidth &&
+                    result["ScreenHeight"].AsInt32 == deviceIdentification.ScreenHeight)
+                {
+                    addr = result["id"].AsInt32;
+                }
+            }
+        }
+        if (addr == -1)
+        {
+            var value = collection.Find(new BsonDocument()).Sort(new BsonDocument {{"id", -1}}).Limit(1).Project(Builders<BsonDocument>.Projection.Exclude("_id").Include("id"));
+            int maxid;
+            if (value.Count() > 0)
+            {
+                maxid = JsonUtility.FromJson<int>(value.ToJson());
+            }
+            else
+            {
+                maxid = 0;
+            }
+            var document = new BsonDocument
+            {
+                {"id", maxid + 1},
+                {"DevId", deviceIdentification.DevId},
+                {"ScreenWidth", deviceIdentification.ScreenWidth},
+                {"ScreenHeight", deviceIdentification.ScreenHeight}
+            };
+            collection.InsertOne(document);
+            addr = maxid;
+        }
+        NetworkServer.SendToClient(message.conn.connectionId, MyMsgType.DeviceId, new IntegerMessage(addr));
     }
 
     public void AddUser(NetworkMessage message)
