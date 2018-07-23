@@ -1,0 +1,8 @@
+{
+	"Domain": "test.com",
+	"DB": "database_name",
+	"User": "test_user",
+	"Password": "test_password",
+	"Port": "27017"
+}
+	
