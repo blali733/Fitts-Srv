@@ -4,8 +4,8 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using UnityEngine;
 using UnityEngine.Networking;
-using SharedTypes;
-using SharedMessages;
+using FittsLibrary;
+using FittsLibrary.Messages;
 using UnityEngine.Networking.NetworkSystem;
 
 public class NetworkManagerEvents : NetworkManager

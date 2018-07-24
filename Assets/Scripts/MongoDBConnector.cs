@@ -5,6 +5,15 @@ using UnityEngine;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
+public class DBConfig
+{
+    public string Domain;
+    public string DB;
+    public string User;
+    public string Password;
+    public string Port;
+}
+
 public class MongoDBConnector
 {
     private MongoClient _client;
@@ -17,9 +26,9 @@ public class MongoDBConnector
 
     private MongoDBConnector()
     {
-        var address = JsonUtility.FromJson<ConfigContent>(File.ReadAllText("./server_config.json")).DBDomain;
-        _client = new MongoClient($"mongodb://FittsApp:ppAsttiF@{address}:27017/fitts");
-//        _client = new MongoClient($"mongodb://192.168.1.166:27017");
+        var fileText = File.ReadAllText("./DB_config.json");
+        var dbConfig = JsonUtility.FromJson<DBConfig>(fileText);
+        _client = new MongoClient($"mongodb://{dbConfig.User}:{dbConfig.Password}@{dbConfig.Domain}:{dbConfig.Port}/{dbConfig.DB}");
     }
 
     public IMongoDatabase GetDatabase()

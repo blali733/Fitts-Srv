@@ -1,5 +1,6 @@
 {
 	"ServerPort":"10000",
-  "DBDomain": "10.9.18.1",
-  "TestGroup":  "Testing1"
+  "DBDomain": "192.168.1.160",
+  "TestGroup":  "Testing1",
+  "ColorSpace": "space_log_0.005_0.0001"
 }

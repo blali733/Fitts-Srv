@@ -1,20 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Newtonsoft.Json;
 using UnityEngine;
-using SharedTypes;
+using FittsLibrary;
+
+//Color space data structure
+[Serializable]
+public class ColorSpaceContainer
+{
+    public List<float> Labels;
+    public List<List<List<float>>> Payload;
+}
 
 public class ConfigSingleton {
     //Singleton instance
     private static ConfigSingleton _instance;
-    private List<TestCase> _testCases;
     public string TestGroup { get; set; }
+    public ColorSpaceContainer ColorSpaceContainer { get; }
 
-    public List<TestCase> TestCases
-    {
-        get { return _testCases; }
-    }
+    public List<TestCase> TestCases { get; }
 
     //Variables:
     private MyNetworkConfig _networkConfig;
@@ -29,14 +38,18 @@ public class ConfigSingleton {
     private ConfigSingleton()
     {
         MongoDBConnector conn = MongoDBConnector.GetInstance();
-        _testCases = new List<TestCase>();
+        TestCases = new List<TestCase>();
         var db = conn.GetDatabase();
+        var colorSpace = JsonUtility.FromJson<ConfigContent>(File.ReadAllText("./server_config.json")).ColorSpace;
         var collection = db.GetCollection<BsonDocument>("testCases");
         foreach (var item in collection.Find(new BsonDocument()).Project(Builders<BsonDocument>.Projection.Exclude("_id")).ToList())
         {
             var jsonString = item.ToJson();
-            _testCases.Add(JsonUtility.FromJson<TestCase>(jsonString));
+            TestCases.Add(JsonUtility.FromJson<TestCase>(jsonString));
         }
+        collection = db.GetCollection<BsonDocument>("ColorSpaces");
+        var colorSpaceRaw = collection.Find(new BsonDocument{{"Name", colorSpace}}).Project(Builders<BsonDocument>.Projection.Exclude("_id").Exclude("Name")).First();
+        ColorSpaceContainer = JsonConvert.DeserializeObject<ColorSpaceContainer>(colorSpaceRaw.ToJson());
     }
 
     public MyNetworkConfig GetMyNetworkConfig()

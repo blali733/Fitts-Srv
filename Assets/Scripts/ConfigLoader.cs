@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
-using SharedTypes;
+using FittsLibrary;
 using UnityEngine.Networking;
 
 [Serializable]
@@ -12,6 +12,7 @@ public class ConfigContent
     public string ServerPort;
     public string DBDomain;
     public string TestGroup;
+    public string ColorSpace;
 }
 
 public class ConfigLoader : MonoBehaviour
