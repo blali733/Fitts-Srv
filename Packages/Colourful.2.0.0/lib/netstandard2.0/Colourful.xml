@@ -63,12 +63,12 @@
         </member>
         <member name="P:Colourful.HunterLabColor.WhitePoint">
             <remarks>
-                <see cref="T:Colourful.Illuminants" />
+            <see cref="T:Colourful.Illuminants" />
             </remarks>
         </member>
         <member name="P:Colourful.HunterLabColor.Vector">
             <summary>
-                <see cref="T:Colourful.IColorVector" />
+            <see cref="T:Colourful.IColorVector" />
             </summary>
         </member>
         <member name="M:Colourful.HunterLabColor.Equals(Colourful.LabColor)">
@@ -249,12 +249,12 @@
         </member>
         <member name="P:Colourful.LabColor.WhitePoint">
             <remarks>
-                <see cref="T:Colourful.Illuminants" />
+            <see cref="T:Colourful.Illuminants" />
             </remarks>
         </member>
         <member name="P:Colourful.LabColor.Vector">
             <summary>
-                <see cref="T:Colourful.IColorVector" />
+            <see cref="T:Colourful.IColorVector" />
             </summary>
         </member>
         <member name="M:Colourful.LabColor.Equals(Colourful.LabColor)">
@@ -331,12 +331,12 @@
         </member>
         <member name="P:Colourful.LChabColor.WhitePoint">
             <remarks>
-                <see cref="T:Colourful.Illuminants" />
+            <see cref="T:Colourful.Illuminants" />
             </remarks>
         </member>
         <member name="P:Colourful.LChabColor.Vector">
             <summary>
-                <see cref="T:Colourful.IColorVector" />
+            <see cref="T:Colourful.IColorVector" />
             </summary>
         </member>
         <member name="P:Colourful.LChabColor.Saturation">
@@ -421,12 +421,12 @@
         </member>
         <member name="P:Colourful.LChuvColor.WhitePoint">
             <remarks>
-                <see cref="T:Colourful.Illuminants" />
+            <see cref="T:Colourful.Illuminants" />
             </remarks>
         </member>
         <member name="P:Colourful.LChuvColor.Vector">
             <summary>
-                <see cref="T:Colourful.IColorVector" />
+            <see cref="T:Colourful.IColorVector" />
             </summary>
         </member>
         <member name="P:Colourful.LChuvColor.Saturation">
@@ -482,18 +482,47 @@
             <param name="g">Green (from 0 to 1)</param>
             <param name="b">Blue (from 0 to 1)</param>
             <param name="workingSpace">
-                <see cref="T:Colourful.RGBWorkingSpaces" />
+            <see cref="T:Colourful.RGBWorkingSpaces" />
             </param>
         </member>
         <member name="M:Colourful.LinearRGBColor.#ctor(System.Collections.Generic.IReadOnlyList{System.Double})">
-            <param name="vector"><see cref="T:System.Collections.Generic.IReadOnlyList`1" />, expected 3 dimensions (range from 0 to 1)</param>
+            <param name="vector"><see cref="P:Colourful.LinearRGBColor.Vector" />, expected 3 dimensions (range from 0 to 1)</param>
             <remarks>Uses <see cref="F:Colourful.LinearRGBColor.DefaultWorkingSpace" /> as working space.</remarks>
         </member>
         <member name="M:Colourful.LinearRGBColor.#ctor(System.Collections.Generic.IReadOnlyList{System.Double},Colourful.IRGBWorkingSpace)">
-            <param name="vector"><see cref="T:System.Collections.Generic.IReadOnlyList`1" />, expected 3 dimensions (range from 0 to 1)</param>
+            <param name="vector"><see cref="P:Colourful.LinearRGBColor.Vector" />, expected 3 dimensions (range from 0 to 1)</param>
             <param name="workingSpace">
-                <see cref="T:Colourful.RGBWorkingSpaces" />
+            <see cref="T:Colourful.RGBWorkingSpaces" />
             </param>
+        </member>
+        <member name="P:Colourful.LinearRGBColor.R">
+            <summary>
+            Red
+            </summary>
+            <remarks>
+            Ranges from 0 to 1.
+            </remarks>
+        </member>
+        <member name="P:Colourful.LinearRGBColor.G">
+            <summary>
+            Green
+            </summary>
+            <remarks>
+            Ranges from 0 to 1.
+            </remarks>
+        </member>
+        <member name="P:Colourful.LinearRGBColor.B">
+            <summary>
+            Blue
+            </summary>
+            <remarks>
+            Ranges from 0 to 1.
+            </remarks>
+        </member>
+        <member name="P:Colourful.LinearRGBColor.Vector">
+            <summary>
+            <see cref="T:Colourful.IColorVector" />
+            </summary>
         </member>
         <member name="P:Colourful.LinearRGBColor.WorkingSpace">
             <summary>
@@ -522,7 +551,7 @@
             </summary>
             <param name="value">Grey value (from 0 to 1)</param>
             <param name="workingSpace">
-                <see cref="T:Colourful.RGBWorkingSpaces" />
+            <see cref="T:Colourful.RGBWorkingSpaces" />
             </param>
         </member>
         <member name="M:Colourful.LinearRGBColor.FromGrey(System.Double)">
@@ -574,7 +603,7 @@
         </member>
         <member name="P:Colourful.LMSColor.Vector">
             <summary>
-                <see cref="T:Colourful.IColorVector" />
+            <see cref="T:Colourful.IColorVector" />
             </summary>
         </member>
         <member name="M:Colourful.LMSColor.Equals(Colourful.LMSColor)">
@@ -652,12 +681,12 @@
         </member>
         <member name="P:Colourful.LuvColor.WhitePoint">
             <remarks>
-                <see cref="T:Colourful.Illuminants" />
+            <see cref="T:Colourful.Illuminants" />
             </remarks>
         </member>
         <member name="P:Colourful.LuvColor.Vector">
             <summary>
-                <see cref="T:Colourful.IColorVector" />
+            <see cref="T:Colourful.IColorVector" />
             </summary>
         </member>
         <member name="M:Colourful.LuvColor.Equals(Colourful.LuvColor)">
@@ -833,27 +862,47 @@
             <param name="g">Green (from 0 to 1)</param>
             <param name="b">Blue (from 0 to 1)</param>
             <param name="workingSpace">
-                <see cref="T:Colourful.RGBWorkingSpaces" />
+            <see cref="T:Colourful.RGBWorkingSpaces" />
             </param>
         </member>
         <member name="M:Colourful.RGBColor.#ctor(System.Collections.Generic.IReadOnlyList{System.Double})">
-            <param name="vector"><see cref="T:System.Collections.Generic.IReadOnlyList`1" />, expected 3 dimensions (range from 0 to 1)</param>
+            <param name="vector"><see cref="P:Colourful.RGBColor.Vector" />, expected 3 dimensions (range from 0 to 1)</param>
             <remarks>Uses <see cref="F:Colourful.RGBColor.DefaultWorkingSpace" /> as working space.</remarks>
         </member>
         <member name="M:Colourful.RGBColor.#ctor(System.Collections.Generic.IReadOnlyList{System.Double},Colourful.IRGBWorkingSpace)">
-            <param name="vector"><see cref="T:System.Collections.Generic.IReadOnlyList`1" />, expected 3 dimensions (range from 0 to 1)</param>
+            <param name="vector"><see cref="P:Colourful.RGBColor.Vector" />, expected 3 dimensions (range from 0 to 1)</param>
             <param name="workingSpace">
-                <see cref="T:Colourful.RGBWorkingSpaces" />
+            <see cref="T:Colourful.RGBWorkingSpaces" />
             </param>
         </member>
-        <member name="M:Colourful.RGBColor.#ctor(System.Drawing.Color)">
-            <remarks>Uses <see cref="F:Colourful.RGBColor.DefaultWorkingSpace" /> as working space.</remarks>
+        <member name="P:Colourful.RGBColor.R">
+            <summary>
+            Red
+            </summary>
+            <remarks>
+            Ranges from 0 to 1.
+            </remarks>
         </member>
-        <member name="M:Colourful.RGBColor.#ctor(System.Drawing.Color,Colourful.IRGBWorkingSpace)">
-            <param name="color"></param>
-            <param name="workingSpace">
-                <see cref="T:Colourful.RGBWorkingSpaces" />
-            </param>
+        <member name="P:Colourful.RGBColor.G">
+            <summary>
+            Green
+            </summary>
+            <remarks>
+            Ranges from 0 to 1.
+            </remarks>
+        </member>
+        <member name="P:Colourful.RGBColor.B">
+            <summary>
+            Blue
+            </summary>
+            <remarks>
+            Ranges from 0 to 1.
+            </remarks>
+        </member>
+        <member name="P:Colourful.RGBColor.Vector">
+            <summary>
+            <see cref="T:Colourful.IColorVector" />
+            </summary>
         </member>
         <member name="P:Colourful.RGBColor.WorkingSpace">
             <summary>
@@ -882,7 +931,7 @@
             </summary>
             <param name="value">Grey value (from 0 to 1)</param>
             <param name="workingSpace">
-                <see cref="T:Colourful.RGBWorkingSpaces" />
+            <see cref="T:Colourful.RGBWorkingSpaces" />
             </param>
         </member>
         <member name="M:Colourful.RGBColor.FromGrey(System.Double)">
@@ -900,7 +949,7 @@
             <param name="green"></param>
             <param name="blue"></param>
             <param name="workingSpace">
-                <see cref="T:Colourful.RGBWorkingSpaces" />
+            <see cref="T:Colourful.RGBWorkingSpaces" />
             </param>
         </member>
         <member name="M:Colourful.RGBColor.FromRGB8bit(System.Byte,System.Byte,System.Byte)">
@@ -909,79 +958,7 @@
             </summary>
             <remarks>Uses <see cref="F:Colourful.RGBColor.DefaultWorkingSpace" /> as working space.</remarks>
         </member>
-        <member name="M:Colourful.RGBColor.ToColor">
-            <summary>
-            Convert to <see cref="T:System.Drawing.Color" />.
-            </summary>
-        </member>
-        <member name="M:Colourful.RGBColor.op_Implicit(Colourful.RGBColor)~System.Drawing.Color">
-            <summary>
-            Convert to <see cref="T:System.Drawing.Color" />.
-            </summary>
-        </member>
-        <member name="M:Colourful.RGBColor.op_Explicit(System.Drawing.Color)~Colourful.RGBColor">
-            <summary>
-            Convert from <see cref="T:System.Drawing.Color" />.
-            </summary>
-        </member>
         <member name="M:Colourful.RGBColor.ToString">
-            <inheritdoc cref="T:System.Object" />
-        </member>
-        <member name="T:Colourful.RGBColorBase">
-            <summary>
-            RGB color without specified <see cref="T:Colourful.IRGBWorkingSpace">working space</see>
-            </summary>
-        </member>
-        <member name="M:Colourful.RGBColorBase.#ctor(System.Double,System.Double,System.Double)">
-            <param name="r">Red (from 0 to 1)</param>
-            <param name="g">Green (from 0 to 1)</param>
-            <param name="b">Blue (from 0 to 1)</param>
-        </member>
-        <member name="M:Colourful.RGBColorBase.#ctor(System.Collections.Generic.IReadOnlyList{System.Double})">
-            <param name="vector"><see cref="P:Colourful.RGBColorBase.Vector" />, expected 3 dimensions (range from 0 to 1)</param>
-        </member>
-        <member name="P:Colourful.RGBColorBase.R">
-            <summary>
-            Red
-            </summary>
-            <remarks>
-            Ranges from 0 to 1.
-            </remarks>
-        </member>
-        <member name="P:Colourful.RGBColorBase.G">
-            <summary>
-            Green
-            </summary>
-            <remarks>
-            Ranges from 0 to 1.
-            </remarks>
-        </member>
-        <member name="P:Colourful.RGBColorBase.B">
-            <summary>
-            Blue
-            </summary>
-            <remarks>
-            Ranges from 0 to 1.
-            </remarks>
-        </member>
-        <member name="P:Colourful.RGBColorBase.Vector">
-            <summary>
-                <see cref="T:Colourful.IColorVector" />
-            </summary>
-        </member>
-        <member name="M:Colourful.RGBColorBase.Equals(Colourful.RGBColorBase)">
-            <inheritdoc cref="T:System.Object" />
-        </member>
-        <member name="M:Colourful.RGBColorBase.Equals(System.Object)">
-            <inheritdoc cref="T:System.Object" />
-        </member>
-        <member name="M:Colourful.RGBColorBase.GetHashCode">
-            <inheritdoc cref="T:System.Object" />
-        </member>
-        <member name="M:Colourful.RGBColorBase.op_Equality(Colourful.RGBColorBase,Colourful.RGBColorBase)">
-            <inheritdoc cref="T:System.Object" />
-        </member>
-        <member name="M:Colourful.RGBColorBase.op_Inequality(Colourful.RGBColorBase,Colourful.RGBColorBase)">
             <inheritdoc cref="T:System.Object" />
         </member>
         <member name="T:Colourful.RGBWorkingSpaces">
@@ -1175,7 +1152,7 @@
         </member>
         <member name="P:Colourful.xyYColor.Vector">
             <summary>
-                <see cref="T:Colourful.IColorVector" />
+            <see cref="T:Colourful.IColorVector" />
             </summary>
         </member>
         <member name="M:Colourful.xyYColor.Equals(Colourful.xyYColor)">
@@ -1226,7 +1203,7 @@
         </member>
         <member name="P:Colourful.XYZColor.Vector">
             <summary>
-                <see cref="T:Colourful.IColorVector" />
+            <see cref="T:Colourful.IColorVector" />
             </summary>
         </member>
         <member name="M:Colourful.XYZColor.Equals(Colourful.XYZColor)">
@@ -1252,40 +1229,45 @@
             Converts between color spaces and makes sure that the color is adapted using chromatic adaptation.
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.XYZColor,Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.XYZColor@,Colourful.XYZColor@)">
             <summary>
             Performs chromatic adaptation of given XYZ color.
             Target white point is <see cref="P:Colourful.Conversion.ColourfulConverter.WhitePoint" />.
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.LinearRGBColor@)">
             <summary>
             Adapts linear RGB color from the source working space to working space set in <see cref="P:Colourful.Conversion.ColourfulConverter.TargetRGBWorkingSpace" />.
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.RGBColor@)">
             <summary>
             Adapts RGB color from the source working space to working space set in <see cref="P:Colourful.Conversion.ColourfulConverter.TargetRGBWorkingSpace" />.
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.LabColor@)">
             <summary>
             Adapts Lab color from the source white point to white point set in <see cref="P:Colourful.Conversion.ColourfulConverter.TargetLabWhitePoint" />.
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.LChabColor@)">
             <summary>
             Adapts LChab color from the source white point to white point set in <see cref="P:Colourful.Conversion.ColourfulConverter.TargetLabWhitePoint" />.
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.HunterLabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.HunterLabColor@)">
             <summary>
             Adapts Lab color from the source white point to white point set in <see cref="P:Colourful.Conversion.ColourfulConverter.TargetHunterLabWhitePoint" />.
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.Adapt(Colourful.LuvColor@)">
             <summary>
             Adapts Luv color from the source white point to white point set in <see cref="P:Colourful.Conversion.ColourfulConverter.TargetLuvWhitePoint" />.
+            </summary>
+        </member>
+        <member name="M:Colourful.Conversion.ColourfulConverter.#ctor">
+            <summary>
+            Constructs the converter and sets the defaults
             </summary>
         </member>
         <member name="F:Colourful.Conversion.ColourfulConverter.DefaultWhitePoint">
@@ -1334,52 +1316,47 @@
             Defaults to: <see cref="F:Colourful.RGBColor.DefaultWorkingSpace" />.
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.#ctor">
-            <summary>
-            Constructs the converter and sets the defaults
-            </summary>
-        </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.RGBColor@)">
             <summary>
             Convert to Hunter Lab color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LinearRGBColor@)">
             <summary>
             Convert to Hunter Lab color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.XYZColor@)">
             <summary>
             Convert to Hunter Lab color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.xyYColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.xyYColor@)">
             <summary>
             Convert to Hunter Lab color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LabColor@)">
             <summary>
             Convert to Hunter Lab color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LChabColor@)">
             <summary>
             Convert to Hunter Lab color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LuvColor@)">
             <summary>
             Convert to Hunter Lab color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LChuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LChuvColor@)">
             <summary>
             Convert to Hunter Lab color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LMSColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToHunterLab(Colourful.LMSColor@)">
             <summary>
             Convert to Hunter Lab color
             </summary>
@@ -1389,47 +1366,47 @@
             Convert to Hunter Lab color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.RGBColor@)">
             <summary>
             Convert to CIE L*a*b* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LinearRGBColor@)">
             <summary>
             Convert to CIE L*a*b* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.XYZColor@)">
             <summary>
             Convert to CIE L*a*b* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.xyYColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.xyYColor@)">
             <summary>
             Convert to CIE L*a*b* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LChabColor@)">
             <summary>
             Convert to CIE L*a*b* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.HunterLabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.HunterLabColor@)">
             <summary>
             Convert to CIE L*a*b* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LuvColor@)">
             <summary>
             Convert to CIE L*a*b* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LChuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LChuvColor@)">
             <summary>
             Convert to CIE L*a*b* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LMSColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLab(Colourful.LMSColor@)">
             <summary>
             Convert to CIE L*a*b* (1976) color
             </summary>
@@ -1439,47 +1416,47 @@
             Convert to CIE L*a*b* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.RGBColor@)">
             <summary>
             Convert to CIE L*C*h° (Lab) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LinearRGBColor@)">
             <summary>
             Convert to CIE L*C*h° (Lab) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.XYZColor@)">
             <summary>
             Convert to CIE L*C*h° (Lab) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.xyYColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.xyYColor@)">
             <summary>
             Convert to CIE L*C*h° (Lab) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LabColor@)">
             <summary>
             Convert to CIE L*C*h° (Lab) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.HunterLabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.HunterLabColor@)">
             <summary>
             Convert to CIE L*C*h° (Lab) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LuvColor@)">
             <summary>
             Convert to CIE L*C*h° (Lab) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LChuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LChuvColor@)">
             <summary>
             Convert to CIE L*C*h° (Lab) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LMSColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChab(Colourful.LMSColor@)">
             <summary>
             Convert to CIE L*C*h° (Lab) color
             </summary>
@@ -1489,47 +1466,47 @@
             Convert to CIE L*C*h° (Lab) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.RGBColor@)">
             <summary>
             Convert to CIE L*C*h° (Luv) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LinearRGBColor@)">
             <summary>
             Convert to CIE L*C*h° (Luv) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.XYZColor@)">
             <summary>
             Convert to CIE L*C*h° (Luv) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.xyYColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.xyYColor@)">
             <summary>
             Convert to CIE L*C*h° (Luv) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LabColor@)">
             <summary>
             Convert to CIE L*C*h° (Luv) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LChabColor@)">
             <summary>
             Convert to CIE L*C*h° (Luv) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.HunterLabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.HunterLabColor@)">
             <summary>
             Convert to CIE L*C*h° (Luv) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LuvColor@)">
             <summary>
             Convert to CIE L*C*h° (Luv) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LMSColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLChuv(Colourful.LMSColor@)">
             <summary>
             Convert to CIE L*C*h° (Luv) color
             </summary>
@@ -1539,47 +1516,47 @@
             Convert to CIE L*C*h° (Luv) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.RGBColor@)">
             <summary>
             Convert to linear RGB
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.XYZColor@)">
             <summary>
             Convert to linear RGB
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.xyYColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.xyYColor@)">
             <summary>
             Convert to linear RGB
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LabColor@)">
             <summary>
             Convert to linear RGB
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LChabColor@)">
             <summary>
             Convert to linear RGB
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.HunterLabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.HunterLabColor@)">
             <summary>
             Convert to linear RGB
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LuvColor@)">
             <summary>
             Convert to linear RGB
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LChuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LChuvColor@)">
             <summary>
             Convert to linear RGB
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LMSColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLinearRGB(Colourful.LMSColor@)">
             <summary>
             Convert to linear RGB
             </summary>
@@ -1589,47 +1566,47 @@
             Convert to linear RGB
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.RGBColor@)">
             <summary>
             Convert to LMS color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LinearRGBColor@)">
             <summary>
             Convert to LMS color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.XYZColor@)">
             <summary>
             Convert to LMS color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.xyYColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.xyYColor@)">
             <summary>
             Convert to LMS color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LabColor@)">
             <summary>
             Convert to LMS color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LChabColor@)">
             <summary>
             Convert to LMS color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.HunterLabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.HunterLabColor@)">
             <summary>
             Convert to LMS color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LuvColor@)">
             <summary>
             Convert to LMS color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LChuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLMS(Colourful.LChuvColor@)">
             <summary>
             Convert to LMS color
             </summary>
@@ -1639,32 +1616,32 @@
             Convert to LMS color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.RGBColor@)">
             <summary>
             Convert to CIE L*u*v* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LinearRGBColor@)">
             <summary>
             Convert to CIE L*u*v* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.XYZColor@)">
             <summary>
             Convert to CIE L*u*v* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.xyYColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.xyYColor@)">
             <summary>
             Convert to CIE L*u*v* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LabColor@)">
             <summary>
             Convert to CIE L*u*v* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LChabColor@)">
             <summary>
             Convert to CIE L*u*v* (1976) color
             </summary>
@@ -1674,12 +1651,12 @@
             Convert to CIE L*u*v* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LChuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LChuvColor@)">
             <summary>
             Convert to CIE L*u*v* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LMSColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToLuv(Colourful.LMSColor@)">
             <summary>
             Convert to CIE L*u*v* (1976) color
             </summary>
@@ -1689,47 +1666,47 @@
             Convert to CIE L*u*v* (1976) color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LinearRGBColor@)">
             <summary>
             Convert to RGB color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.XYZColor@)">
             <summary>
             Convert to RGB color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.xyYColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.xyYColor@)">
             <summary>
             Convert to RGB color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LabColor@)">
             <summary>
             Convert to RGB color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LChabColor@)">
             <summary>
             Convert to RGB color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.HunterLabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.HunterLabColor@)">
             <summary>
             Convert to RGB color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LuvColor@)">
             <summary>
             Convert to RGB color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LChuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LChuvColor@)">
             <summary>
             Convert to RGB color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LMSColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToRGB(Colourful.LMSColor@)">
             <summary>
             Convert to RGB color
             </summary>
@@ -1739,47 +1716,47 @@
             Convert to RGB color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.RGBColor@)">
             <summary>
             Convert to CIE xyY color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LinearRGBColor@)">
             <summary>
             Convert to CIE xyY color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.XYZColor@)">
             <summary>
             Convert to CIE xyY color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LabColor@)">
             <summary>
             Convert to CIE xyY color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LChabColor@)">
             <summary>
             Convert to CIE xyY color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.HunterLabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.HunterLabColor@)">
             <summary>
             Convert to CIE xyY color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LuvColor@)">
             <summary>
             Convert to CIE xyY color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LChuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LChuvColor@)">
             <summary>
             Convert to CIE xyY color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LMSColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToxyY(Colourful.LMSColor@)">
             <summary>
             Convert to CIE xyY color
             </summary>
@@ -1789,47 +1766,47 @@
             Convert to CIE xyY color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.RGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.RGBColor@)">
             <summary>
             Convert to CIE 1931 XYZ color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LinearRGBColor@)">
             <summary>
             Convert to CIE 1931 XYZ color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.xyYColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.xyYColor@)">
             <summary>
             Convert to CIE 1931 XYZ color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LabColor@)">
             <summary>
             Convert to CIE 1931 XYZ color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LChabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LChabColor@)">
             <summary>
             Convert to CIE 1931 XYZ color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.HunterLabColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.HunterLabColor@)">
             <summary>
             Convert to CIE 1931 XYZ color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LuvColor@)">
             <summary>
             Convert to CIE 1931 XYZ color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LChuvColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LChuvColor@)">
             <summary>
             Convert to CIE 1931 XYZ color
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LMSColor)">
+        <member name="M:Colourful.Conversion.ColourfulConverter.ToXYZ(Colourful.LMSColor@)">
             <summary>
             Convert to CIE 1931 XYZ color
             </summary>
@@ -1846,7 +1823,7 @@
             which is dependent on the source reference white (XWS, YWS, ZWS) and the destination reference white (XWD, YWD, ZWD).
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.IChromaticAdaptation.Transform(Colourful.XYZColor,Colourful.XYZColor,Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.IChromaticAdaptation.Transform(Colourful.XYZColor@,Colourful.XYZColor@,Colourful.XYZColor@)">
             <remarks>Doesn't crop the resulting color space coordinates (e. g. allows negative values for XYZ coordinates).</remarks>
         </member>
         <member name="T:Colourful.Conversion.VonKriesChromaticAdaptation">
@@ -1874,7 +1851,7 @@
             Constructs von Kries chromatic adaptation using given converters
             </summary>
         </member>
-        <member name="M:Colourful.Conversion.VonKriesChromaticAdaptation.Transform(Colourful.XYZColor,Colourful.XYZColor,Colourful.XYZColor)">
+        <member name="M:Colourful.Conversion.VonKriesChromaticAdaptation.Transform(Colourful.XYZColor@,Colourful.XYZColor@,Colourful.XYZColor@)">
             <summary>
             Transforms XYZ color to destination reference white.
             </summary>
@@ -1884,7 +1861,7 @@
             CIE Delta-E 1976 formula
             </summary>
         </member>
-        <member name="M:Colourful.Difference.CIE76ColorDifference.ComputeDifference(Colourful.LabColor,Colourful.LabColor)">
+        <member name="M:Colourful.Difference.CIE76ColorDifference.ComputeDifference(Colourful.LabColor@,Colourful.LabColor@)">
             <param name="x">Reference color</param>
             <param name="y">Sample color</param>
             <returns>Delta-E (1976) color difference</returns>
@@ -1909,7 +1886,7 @@
             </summary>
             <param name="application">A <see cref="T:Colourful.Difference.CIE94ColorDifferenceApplication" /> value specifying the application area. Different weighting factors are used in the computation depending on the application.</param>
         </member>
-        <member name="M:Colourful.Difference.CIE94ColorDifference.ComputeDifference(Colourful.LabColor,Colourful.LabColor)">
+        <member name="M:Colourful.Difference.CIE94ColorDifference.ComputeDifference(Colourful.LabColor@,Colourful.LabColor@)">
             <param name="x">Reference color</param>
             <param name="y">Sample color</param>
             <returns>Delta-E (1994) color difference</returns>
@@ -1934,7 +1911,7 @@
             CIE Delta-E 2000 formula
             </summary>
         </member>
-        <member name="M:Colourful.Difference.CIEDE2000ColorDifference.ComputeDifference(Colourful.LabColor,Colourful.LabColor)">
+        <member name="M:Colourful.Difference.CIEDE2000ColorDifference.ComputeDifference(Colourful.LabColor@,Colourful.LabColor@)">
             <param name="x">Reference color</param>
             <param name="y">Sample color</param>
             <remarks>Implemented according to: Sharma, Gaurav; Wencheng Wu, Edul N. Dalal (2005). "The CIEDE2000 color-difference formula: Implementation notes, supplementary test data, and mathematical observations" (http://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf)</remarks>
@@ -1968,7 +1945,7 @@
             Constructs with arbitrary threshold parameters.
             </summary>
         </member>
-        <member name="M:Colourful.Difference.CMCColorDifference.ComputeDifference(Colourful.LabColor,Colourful.LabColor)">
+        <member name="M:Colourful.Difference.CMCColorDifference.ComputeDifference(Colourful.LabColor@,Colourful.LabColor@)">
             <inheritdoc />
         </member>
         <member name="T:Colourful.Difference.CMCColorDifferenceThreshold">
@@ -1992,7 +1969,7 @@
             </summary>
             <typeparam name="TColor"></typeparam>
         </member>
-        <member name="M:Colourful.Difference.IColorDifference`1.ComputeDifference(`0,`0)">
+        <member name="M:Colourful.Difference.IColorDifference`1.ComputeDifference(`0@,`0@)">
             <summary>
             Computes distance between color x and y.
             </summary>
@@ -2002,7 +1979,12 @@
             Converts from <see cref="T:Colourful.HunterLabColor" /> to <see cref="T:Colourful.XYZColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.HunterLabToXYZConverter.Convert(Colourful.HunterLabColor)">
+        <member name="F:Colourful.Implementation.Conversion.HunterLabToXYZConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.HunterLabToXYZConverter.Convert(Colourful.HunterLabColor@)">
             <summary>
             Converts from <see cref="T:Colourful.HunterLabColor" /> to <see cref="T:Colourful.XYZColor" />.
             </summary>
@@ -2054,7 +2036,7 @@
             Target reference white. When not set, <see cref="F:Colourful.LabColor.DefaultWhitePoint" /> is used.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.XYZToHunterLabConverter.Convert(Colourful.XYZColor)">
+        <member name="M:Colourful.Implementation.Conversion.XYZToHunterLabConverter.Convert(Colourful.XYZColor@)">
             <summary>
             Converts from <see cref="T:Colourful.HunterLabColor" /> to <see cref="T:Colourful.XYZColor" />.
             </summary>
@@ -2066,7 +2048,7 @@
             <typeparam name="TInput"></typeparam>
             <typeparam name="TOutput"></typeparam>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.IColorConversion`2.Convert(`0)">
+        <member name="M:Colourful.Implementation.Conversion.IColorConversion`2.Convert(`0@)">
             <summary>
             Converts from the input color space to the output color space.
             </summary>
@@ -2076,7 +2058,12 @@
             Converts from <see cref="T:Colourful.LabColor" /> to <see cref="T:Colourful.XYZColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.LabToXYZConverter.Convert(Colourful.LabColor)">
+        <member name="F:Colourful.Implementation.Conversion.LabToXYZConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.LabToXYZConverter.Convert(Colourful.LabColor@)">
             <summary>
             Converts from <see cref="T:Colourful.LabColor" /> to <see cref="T:Colourful.XYZColor" />.
             </summary>
@@ -2113,7 +2100,7 @@
             Target reference white. When not set, <see cref="F:Colourful.LabColor.DefaultWhitePoint" /> is used.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.XYZToLabConverter.Convert(Colourful.XYZColor)">
+        <member name="M:Colourful.Implementation.Conversion.XYZToLabConverter.Convert(Colourful.XYZColor@)">
             <summary>
             Converts from <see cref="T:Colourful.XYZColor" /> to <see cref="T:Colourful.LabColor" />.
             </summary>
@@ -2138,7 +2125,12 @@
             Converts from <see cref="T:Colourful.LabColor" /> to <see cref="T:Colourful.LChabColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.LabToLChabConverter.Convert(Colourful.LabColor)">
+        <member name="F:Colourful.Implementation.Conversion.LabToLChabConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.LabToLChabConverter.Convert(Colourful.LabColor@)">
             <summary>
             Converts from <see cref="T:Colourful.LabColor" /> to <see cref="T:Colourful.LChabColor" />.
             </summary>
@@ -2160,7 +2152,12 @@
             Converts from <see cref="T:Colourful.LChabColor" /> to <see cref="T:Colourful.LabColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.LChabToLabConverter.Convert(Colourful.LChabColor)">
+        <member name="F:Colourful.Implementation.Conversion.LChabToLabConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.LChabToLabConverter.Convert(Colourful.LChabColor@)">
             <summary>
             Converts from <see cref="T:Colourful.LChabColor" /> to <see cref="T:Colourful.LabColor" />.
             </summary>
@@ -2182,7 +2179,12 @@
             Converts from <see cref="T:Colourful.LChuvColor" /> to <see cref="T:Colourful.LuvColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.LChuvToLuvConverter.Convert(Colourful.LChuvColor)">
+        <member name="F:Colourful.Implementation.Conversion.LChuvToLuvConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.LChuvToLuvConverter.Convert(Colourful.LChuvColor@)">
             <summary>
             Converts from <see cref="T:Colourful.LChuvColor" /> to <see cref="T:Colourful.LuvColor" />.
             </summary>
@@ -2204,7 +2206,12 @@
             Converts from <see cref="T:Colourful.LuvColor" /> to <see cref="T:Colourful.LChuvColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.LuvToLChuvConverter.Convert(Colourful.LuvColor)">
+        <member name="F:Colourful.Implementation.Conversion.LuvToLChuvConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.LuvToLChuvConverter.Convert(Colourful.LuvColor@)">
             <summary>
             Converts from <see cref="T:Colourful.LuvColor" /> to <see cref="T:Colourful.LChuvColor" />.
             </summary>
@@ -2280,12 +2287,6 @@
             <see cref="T:Colourful.Implementation.Conversion.LMSTransformationMatrix" />
             </summary>
         </member>
-        <member name="P:Colourful.Implementation.Conversion.XYZAndLMSConverter.TransformationMatrix">
-            <summary>
-            Transformation matrix used for the conversion (definition of the cone response domain).
-            <see cref="T:Colourful.Implementation.Conversion.LMSTransformationMatrix" />
-            </summary>
-        </member>
         <member name="M:Colourful.Implementation.Conversion.XYZAndLMSConverter.#ctor">
             <summary>
             Constructs with <see cref="F:Colourful.Implementation.Conversion.XYZAndLMSConverter.DefaultTransformationMatrix" />
@@ -2294,14 +2295,20 @@
         <member name="M:Colourful.Implementation.Conversion.XYZAndLMSConverter.#ctor(System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IReadOnlyList{System.Double}})">
             <param name="transformationMatrix">Definition of the cone response domain (see <see cref="T:Colourful.Implementation.Conversion.LMSTransformationMatrix" />), if not set <see cref="F:Colourful.Implementation.Conversion.XYZAndLMSConverter.DefaultTransformationMatrix" /> will be used.</param>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.XYZAndLMSConverter.Convert(Colourful.XYZColor)">
+        <member name="P:Colourful.Implementation.Conversion.XYZAndLMSConverter.TransformationMatrix">
             <summary>
-            Converts from <see cref="T:Colourful.XYZColor" /> to <see cref="T:Colourful.LMSColor" />.
+            Transformation matrix used for the conversion (definition of the cone response domain).
+            <see cref="T:Colourful.Implementation.Conversion.LMSTransformationMatrix" />
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.XYZAndLMSConverter.Convert(Colourful.LMSColor)">
+        <member name="M:Colourful.Implementation.Conversion.XYZAndLMSConverter.Convert(Colourful.LMSColor@)">
             <summary>
             Converts from <see cref="T:Colourful.LMSColor" /> to <see cref="T:Colourful.XYZColor" />.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.XYZAndLMSConverter.Convert(Colourful.XYZColor@)">
+            <summary>
+            Converts from <see cref="T:Colourful.XYZColor" /> to <see cref="T:Colourful.LMSColor" />.
             </summary>
         </member>
         <member name="T:Colourful.Implementation.Conversion.LuvToXYZConverter">
@@ -2309,7 +2316,12 @@
             Converts from <see cref="T:Colourful.LuvColor" /> to <see cref="T:Colourful.XYZColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.LuvToXYZConverter.Convert(Colourful.LuvColor)">
+        <member name="F:Colourful.Implementation.Conversion.LuvToXYZConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.LuvToXYZConverter.Convert(Colourful.LuvColor@)">
             <summary>
             Converts from <see cref="T:Colourful.LuvColor" /> to <see cref="T:Colourful.XYZColor" />.
             </summary>
@@ -2346,7 +2358,7 @@
             Target reference white. When not set, <see cref="F:Colourful.LuvColor.DefaultWhitePoint" /> is used.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.XYZToLuvConverter.Convert(Colourful.XYZColor)">
+        <member name="M:Colourful.Implementation.Conversion.XYZToLuvConverter.Convert(Colourful.XYZColor@)">
             <summary>
             Converts from <see cref="T:Colourful.XYZColor" /> to <see cref="T:Colourful.LuvColor" />.
             </summary>
@@ -2386,7 +2398,12 @@
             Converts from <see cref="T:Colourful.LinearRGBColor" /> to <see cref="T:Colourful.RGBColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.LinearRGBToRGBConverter.Convert(Colourful.LinearRGBColor)">
+        <member name="F:Colourful.Implementation.Conversion.LinearRGBToRGBConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.LinearRGBToRGBConverter.Convert(Colourful.LinearRGBColor@)">
             <summary>
             Converts from <see cref="T:Colourful.LinearRGBColor" /> to <see cref="T:Colourful.RGBColor" />.
             </summary>
@@ -2424,7 +2441,7 @@
             Source RGB working space
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.LinearRGBToXYZConverter.Convert(Colourful.LinearRGBColor)">
+        <member name="M:Colourful.Implementation.Conversion.LinearRGBToXYZConverter.Convert(Colourful.LinearRGBColor@)">
             <summary>
             Converts from <see cref="T:Colourful.LinearRGBColor" /> to <see cref="T:Colourful.XYZColor" />.
             </summary>
@@ -2449,12 +2466,17 @@
             Converts from <see cref="T:Colourful.RGBColor" /> to <see cref="T:Colourful.LinearRGBColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.RGBToLinearRGBConverter.Convert(Colourful.RGBColor)">
+        <member name="F:Colourful.Implementation.Conversion.RGBToLinearRGBConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.RGBToLinearRGBConverter.Convert(Colourful.RGBColor@)">
             <summary>
             Converts from <see cref="T:Colourful.RGBColor" /> to <see cref="T:Colourful.LinearRGBColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.RGBToLinearRGBConverter.UncompandVector(Colourful.RGBColor)">
+        <member name="M:Colourful.Implementation.Conversion.RGBToLinearRGBConverter.UncompandVector(Colourful.RGBColor@)">
             <summary>
             Applying the working space inverse companding function (<see cref="P:Colourful.IRGBWorkingSpace.Companding" />) to RGB vector.
             </summary>
@@ -2497,7 +2519,7 @@
             Target RGB working space. When not set, target RGB working space is <see cref="F:Colourful.RGBColor.DefaultWorkingSpace" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.XYZToLinearRGBConverter.Convert(Colourful.XYZColor)">
+        <member name="M:Colourful.Implementation.Conversion.XYZToLinearRGBConverter.Convert(Colourful.XYZColor@)">
             <summary>
             Converts from <see cref="T:Colourful.XYZColor" /> to <see cref="T:Colourful.LinearRGBColor" />.
             </summary>
@@ -2522,12 +2544,17 @@
             Converts from <see cref="T:Colourful.xyYColor" /> to <see cref="T:Colourful.XYZColor" /> and back.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.xyYAndXYZConverter.Convert(Colourful.xyYColor)">
+        <member name="F:Colourful.Implementation.Conversion.xyYAndXYZConverter.Default">
+            <summary>
+            Default singleton instance of the converter.
+            </summary>
+        </member>
+        <member name="M:Colourful.Implementation.Conversion.xyYAndXYZConverter.Convert(Colourful.xyYColor@)">
             <summary>
             Converts from <see cref="T:Colourful.xyYColor" /> to <see cref="T:Colourful.XYZColor" />.
             </summary>
         </member>
-        <member name="M:Colourful.Implementation.Conversion.xyYAndXYZConverter.Convert(Colourful.XYZColor)">
+        <member name="M:Colourful.Implementation.Conversion.xyYAndXYZConverter.Convert(Colourful.XYZColor@)">
             <summary>
             Converts from <see cref="T:Colourful.XYZColor" /> to <see cref="T:Colourful.xyYColor" />.
             </summary>
@@ -2834,7 +2861,7 @@
             Returns chromaticity coordinates of given CCT (specified in K)
             </summary>
         </member>
-        <member name="M:Colourful.CCTConverter.GetCCTOfChromaticity(Colourful.xyChromaticityCoordinates)">
+        <member name="M:Colourful.CCTConverter.GetCCTOfChromaticity(Colourful.xyChromaticityCoordinates@)">
             <summary>
             Returns CCT (specified in K) of given chromaticity coordinates
             </summary>
