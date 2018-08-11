@@ -22,6 +22,7 @@ public class ConfigSingleton {
     private static ConfigSingleton _instance;
     public string TestGroup { get; set; }
     public ColorSpaceContainer ColorSpaceContainer { get; }
+    public List<ColorRange> ColorRanges { get; }
 
     public List<TestCase> TestCases { get; }
 
@@ -50,6 +51,13 @@ public class ConfigSingleton {
         collection = db.GetCollection<BsonDocument>("ColorSpaces");
         var colorSpaceRaw = collection.Find(new BsonDocument{{"Name", colorSpace}}).Project(Builders<BsonDocument>.Projection.Exclude("_id").Exclude("Name")).First();
         ColorSpaceContainer = JsonConvert.DeserializeObject<ColorSpaceContainer>(colorSpaceRaw.ToJson());
+        // Parsing ColorSpaceContainer to list of color ranges:
+        ColorRanges = new List<ColorRange>();
+        int maax = ColorSpaceContainer.Labels.Count;
+        for (int i = 0; i < maax; i++)
+        {
+            ColorRanges.Add(new ColorRange(ColorSpaceContainer.Labels[i], ColorSpaceContainer.Payload[i]));
+        }
     }
 
     public MyNetworkConfig GetMyNetworkConfig()

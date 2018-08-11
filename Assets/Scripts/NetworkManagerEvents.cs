@@ -13,11 +13,9 @@ public class NetworkManagerEvents : NetworkManager
     private ConfigSingleton _config;
 
     private Random _rng;
-    //private List<NetworkConnection> _connections;
     private void Start()
     {
         _config = ConfigSingleton.GetInstance();
-        //_connections = new List<NetworkConnection>();
     }
 
     public override void OnStartServer()
@@ -123,6 +121,9 @@ public class NetworkManagerEvents : NetworkManager
                     userList.Add(JsonUtility.FromJson<User>(jsonString));
                 }
                 NetworkServer.SendToClient(message.conn.connectionId, MyMsgType.UserList, new UserListMessage(userList));
+                break;
+            case RequestType.ColorRanges:
+                NetworkServer.SendToClient(message.conn.connectionId, MyMsgType.ColorRanges, new ColorRangesMessage(_config.ColorRanges));
                 break;
         }
     }
