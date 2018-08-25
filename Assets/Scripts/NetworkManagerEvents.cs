@@ -93,7 +93,8 @@ public class NetworkManagerEvents : NetworkManager
                     {"Smaller5", user.Results.Smaller5},
                     {"Smaller11", user.Results.Smaller11},
                     {"Greater11", user.Results.Greater11},
-                    {"Activities", user.Results.Activities}
+                    {"Activities", user.Results.Activities},
+                    {"ColorPerception", user.Results.ColorPerception}
                 }
             }
         };
