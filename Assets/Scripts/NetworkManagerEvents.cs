@@ -42,7 +42,8 @@ public class NetworkManagerEvents : NetworkManager
             foreach (var result in results)
             {
                 if (result["ScreenWidth"].AsInt32 == deviceIdentification.ScreenWidth &&
-                    result["ScreenHeight"].AsInt32 == deviceIdentification.ScreenHeight)
+                    result["ScreenHeight"].AsInt32 == deviceIdentification.ScreenHeight &&
+                    result["DeviceClass"].AsInt32 == (int)deviceIdentification.DeviceClass)
                 {
                     addr = result["id"].AsInt32;
                 }
@@ -65,7 +66,8 @@ public class NetworkManagerEvents : NetworkManager
                 {"id", maxid + 1},
                 {"DevId", deviceIdentification.DevId},
                 {"ScreenWidth", deviceIdentification.ScreenWidth},
-                {"ScreenHeight", deviceIdentification.ScreenHeight}
+                {"ScreenHeight", deviceIdentification.ScreenHeight},
+                {"DeviceClass", deviceIdentification.DeviceClass}
             };
             collection.InsertOne(document);
             addr = maxid;
