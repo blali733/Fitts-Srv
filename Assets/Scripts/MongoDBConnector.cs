@@ -17,6 +17,7 @@ public class DBConfig
 public class MongoDBConnector
 {
     private MongoClient _client;
+    private MongoClient _resultClient;
     private static MongoDBConnector _instance;
 
     public static MongoDBConnector GetInstance()
@@ -34,5 +35,10 @@ public class MongoDBConnector
     public IMongoDatabase GetDatabase()
     {
         return _client.GetDatabase("fitts");
+    }
+
+    public IMongoDatabase GetResultsDatabase()
+    {
+        return _client.GetDatabase("fitts_results");
     }
 }

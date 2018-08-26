@@ -1,8 +1,9 @@
 {
-	"Domain": "test.com",
-	"DB": "database_name",
-	"User": "test_user",
-	"Password": "test_password",
-	"Port": "27017"
+  "Domain": "test.com",
+  "DB": "database_name",
+  "ResultDB": "result_database_name",
+  "User": "test_user",
+  "Password": "test_password",
+  "Port": "27017"
 }
 	
