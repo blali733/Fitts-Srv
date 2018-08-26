@@ -43,9 +43,4 @@ public class MongoDBConnector
     {
         return _client.GetDatabase(_dbConfig.ResultDB);
     }
-
-    public IMongoDatabase GetResultsDatabase()
-    {
-        return _client.GetDatabase("fitts_results");
-    }
 }
