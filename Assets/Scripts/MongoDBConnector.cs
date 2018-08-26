@@ -9,6 +9,7 @@ public class DBConfig
 {
     public string Domain;
     public string DB;
+    public string ResultDB;
     public string User;
     public string Password;
     public string Port;
@@ -17,7 +18,9 @@ public class DBConfig
 public class MongoDBConnector
 {
     private MongoClient _client;
+    private MongoClient _resultClient;
     private static MongoDBConnector _instance;
+    private DBConfig _dbConfig;
 
     public static MongoDBConnector GetInstance()
     {
@@ -27,12 +30,17 @@ public class MongoDBConnector
     private MongoDBConnector()
     {
         var fileText = File.ReadAllText("./DB_config.json");
-        var dbConfig = JsonUtility.FromJson<DBConfig>(fileText);
-        _client = new MongoClient($"mongodb://{dbConfig.User}:{dbConfig.Password}@{dbConfig.Domain}:{dbConfig.Port}/{dbConfig.DB}");
+        _dbConfig = JsonUtility.FromJson<DBConfig>(fileText);
+        _client = new MongoClient($"mongodb://{_dbConfig.User}:{_dbConfig.Password}@{_dbConfig.Domain}:{_dbConfig.Port}/{_dbConfig.DB}");
     }
 
     public IMongoDatabase GetDatabase()
     {
-        return _client.GetDatabase("fitts");
+        return _client.GetDatabase(_dbConfig.DB);
+    }
+
+    public IMongoDatabase GetResultsDatabase()
+    {
+        return _client.GetDatabase(_dbConfig.ResultDB);
     }
 }
