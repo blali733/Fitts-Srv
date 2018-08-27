@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using UnityEngine;
@@ -12,10 +13,11 @@ public class NetworkManagerEvents : NetworkManager
 {
     private ConfigSingleton _config;
 
-    private Random _rng;
+    private System.Random _rng;
     private void Start()
     {
         _config = ConfigSingleton.GetInstance();
+        _rng = new System.Random();
     }
 
     public override void OnStartServer()
@@ -80,7 +82,17 @@ public class NetworkManagerEvents : NetworkManager
         StoredUserMessage msg = message.ReadMessage<StoredUserMessage>();
         StoredUser user = msg.User;
         user.TestGroup = _config.TestGroup;
-        user.Code = GenRandomCode();
+        //Generate random code:
+        string code;
+        var resultDb = MongoDBConnector.GetInstance().GetResultsDatabase();
+        var registeredUsersCollection = resultDb.GetCollection<BsonDocument>("Users");
+        int count;
+        do
+        {
+            code = GenRandomCode();
+            count = registeredUsersCollection.Find(new BsonDocument {{"_id", code}}).Limit(1).ToList().Count;
+        } while (count != 0);
+        user.Code = code;
         var db = MongoDBConnector.GetInstance().GetDatabase();
         var collection = db.GetCollection<BsonDocument>("Users");
         var document = new BsonDocument
@@ -101,12 +113,36 @@ public class NetworkManagerEvents : NetworkManager
             }
         };
         collection.InsertOne(document);
+        var devices = user.Results.None.ToInt() << 3 +
+                      user.Results.Smaller5.ToInt() << 2 +
+                      user.Results.Smaller11.ToInt() << 1 +
+                      user.Results.Greater11.ToInt();
+        document = new BsonDocument
+        {
+            {"_id", code},
+            {"AgeGroup", user.Results.AgeGroup},
+            {"ColorPerception", user.Results.ColorPerception},
+            {"TouchFrequency", user.Results.TouchFrequency},
+            {"Activities", user.Results.Activities},
+            {"Devices", devices}
+        };
+        registeredUsersCollection.InsertOne(document);
     }
 
-    public int GenRandomCode()
+    public string GenRandomCode()
     {
-        // "random"
-        return 1111;
+        var chars = "";
+        chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        chars += "abcdefghijklmnopqrstuvwxyz";
+        chars += "0123456789";
+        var stringChars = new char[8];
+
+        for (int i = 0; i < stringChars.Length; i++)
+        {
+            stringChars[i] = chars[_rng.Next(chars.Length)];
+        }
+
+        return new string(stringChars);
     }
 
     public void DataBroker(NetworkMessage message)
