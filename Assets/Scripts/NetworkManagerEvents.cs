@@ -113,9 +113,9 @@ public class NetworkManagerEvents : NetworkManager
             }
         };
         collection.InsertOne(document);
-        var devices = user.Results.None.ToInt() << 3 +
-                      user.Results.Smaller5.ToInt() << 2 +
-                      user.Results.Smaller11.ToInt() << 1 +
+        var devices = (user.Results.None.ToInt() << 3) +
+                      (user.Results.Smaller5.ToInt() << 2) +
+                      (user.Results.Smaller11.ToInt() << 1) +
                       user.Results.Greater11.ToInt();
         document = new BsonDocument
         {
@@ -127,6 +127,9 @@ public class NetworkManagerEvents : NetworkManager
             {"Devices", devices}
         };
         registeredUsersCollection.InsertOne(document);
+        var filter = Builders<BsonDocument>.Filter.Eq("_id", "UserCount");
+        var update = Builders<BsonDocument>.Update.Inc("Count", 1);
+        resultDb.GetCollection<BsonDocument>("counters").FindOneAndUpdate(filter, update);
     }
 
     public string GenRandomCode()
