@@ -130,6 +130,7 @@ public class NetworkManagerEvents : NetworkManager
         var filter = Builders<BsonDocument>.Filter.Eq("_id", "UserCount");
         var update = Builders<BsonDocument>.Update.Inc("Count", 1);
         resultDb.GetCollection<BsonDocument>("counters").FindOneAndUpdate(filter, update);
+        NetworkServer.SendToClient(message.conn.connectionId, MyMsgType.UserCode, new StringMessage(user.Code));
     }
 
     public string GenRandomCode()
@@ -157,7 +158,7 @@ public class NetworkManagerEvents : NetworkManager
                 List<User> userList = new List<User>();
                 var db = MongoDBConnector.GetInstance().GetDatabase();
                 var collection = db.GetCollection<BsonDocument>("Users");
-                foreach (var item in collection.Find(new BsonDocument{{"TestGroup", _config.TestGroup}}).Project(Builders<BsonDocument>.Projection.Exclude("_id").Include("Name")).ToList())
+                foreach (var item in collection.Find(new BsonDocument{{"TestGroup", _config.TestGroup}}).Project(Builders<BsonDocument>.Projection.Exclude("_id").Include("Name").Include("Code")).ToList())
                 {
                     var jsonString = item.ToJson();
                     userList.Add(JsonUtility.FromJson<User>(jsonString));
@@ -177,7 +178,6 @@ public class NetworkManagerEvents : NetworkManager
         string user = msg.Content.User;
         var db = MongoDBConnector.GetInstance().GetDatabase();
         var collection = db.GetCollection<BsonDocument>("TargetDatas");
-        var userCollection = db.GetCollection<BsonDocument>("Users");
         BsonArray arr = new BsonArray();
         foreach (var list in targetDatas)
         {
@@ -190,7 +190,7 @@ public class NetworkManagerEvents : NetworkManager
         }
         BsonDocument document = new BsonDocument
         {
-            {"UserName", user},
+            {"UserCode", user},
             {"TargetDatas", arr}
         };
         collection.InsertOne(document);
@@ -203,7 +203,6 @@ public class NetworkManagerEvents : NetworkManager
         string user = msg.Content.User;
         var db = MongoDBConnector.GetInstance().GetDatabase();
         var collection = db.GetCollection<BsonDocument>("TargetInfos");
-        var userCollection = db.GetCollection<BsonDocument>("Users");
         BsonArray arr = new BsonArray();
         foreach (var list in targetInfos)
         {
@@ -216,16 +215,16 @@ public class NetworkManagerEvents : NetworkManager
         }
         BsonDocument document = new BsonDocument
         {
-            {"UserName", user},
+            {"UserCode", user},
             {"TargetInfos", arr}
         };
         collection.InsertOne(document);
+        // Recalculate values and put them into bag (ekhm...) I mean into database
     }
 
     public override void OnServerConnect(NetworkConnection conn)
     {
         Debug.Log($"Client with id {conn.connectionId}, from {conn.address} has connected.");
-        //_connections.Add(conn);
         TestCasesMessage msg = new TestCasesMessage(_config.TestCases);
         NetworkServer.SendToClient(conn.connectionId, MyMsgType.TestCases, msg);
     }
