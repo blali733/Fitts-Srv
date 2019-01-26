@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using UnityEngine;
 using UnityEngine.Networking;
 using FittsLibrary;
 using FittsLibrary.Messages;
+using MathNet.Numerics;
 using UnityEngine.Networking.NetworkSystem;
 
 public class NetworkManagerEvents : NetworkManager
@@ -196,6 +198,17 @@ public class NetworkManagerEvents : NetworkManager
         collection.InsertOne(document);
     }
 
+    private Tuple<double, double> LinReg(double[] xData, double[] yData)
+    {
+        if (xData.Length == yData.Length)
+            
+            return Fit.Line(xData, yData);
+        else
+        {
+            throw new DataMisalignedException();
+        }
+    }
+
     public void GotTargetInfos(NetworkMessage message)
     {
         TargetInfosMessage msg = message.ReadMessage<TargetInfosMessage>();
@@ -204,14 +217,65 @@ public class NetworkManagerEvents : NetworkManager
         var db = MongoDBConnector.GetInstance().GetDatabase();
         var collection = db.GetCollection<BsonDocument>("TargetInfos");
         BsonArray arr = new BsonArray();
+        UserResultSet userResultSet = new UserResultSet();
+        userResultSet.UID = user;
+        userResultSet.DID = msg.Content.DevId;
+        double prevColorDiff;
+        int i = 0;
         foreach (var list in targetInfos)
         {
+            prevColorDiff = list.First().ColorDistance;
             BsonArray innerArr = new BsonArray();
+            TargetSet targetSet = new TargetSet();
+            List<double> xData = new List<double>();
+            List<double> yData = new List<double>();
+            Tuple<double, double> result;
+            int pos;
             foreach (var targetInfo in list)
             {
+                Debug.Log($"Colour differences {prevColorDiff} to {targetInfo.ColorDistance}");
+                if (Math.Abs(prevColorDiff - targetInfo.ColorDistance) > 1.0)
+                {
+                    // Reset line set:
+                    targetSet.TestCase = _config.TestCases[i]; 
+                    targetSet.ColourDifference = prevColorDiff;
+                    pos = IsImportantError(xData);
+                    while (pos != -1)
+                    {
+                        xData.RemoveAt(pos);
+                        yData.RemoveAt(pos);
+                        pos = IsImportantError(xData);
+                    }
+                    result = LinReg(xData.ToArray(), yData.ToArray());
+                    targetSet.ParameterA = result.Item2;
+                    targetSet.ParameterB = result.Item1;
+                    userResultSet.TargetSets.Add(targetSet);
+                    targetSet = new TargetSet();
+                    xData.Clear();
+                    yData.Clear();
+                }
+                prevColorDiff = targetInfo.ColorDistance;
+                targetSet.TargetPoints.Add(new TargetPoint(targetInfo.Duration.TotalSeconds, 
+                    Math.Log(2*targetInfo.PixelDistance/targetInfo.PixelSize, 2)));
+                xData.Add(targetInfo.Duration.TotalSeconds);
+                yData.Add(Math.Log(2*targetInfo.PixelDistance/targetInfo.PixelSize, 2));
                 innerArr.Add(new BsonDocument(targetInfo.ToBsonDocument()));
             }
             arr.Add(innerArr);
+            targetSet.TestCase = _config.TestCases[i]; 
+            targetSet.ColourDifference = prevColorDiff;
+            pos = IsImportantError(xData);
+            while (pos != -1)
+            {
+                xData.RemoveAt(pos);
+                yData.RemoveAt(pos);
+                pos = IsImportantError(xData);
+            }
+            result = LinReg(xData.ToArray(), yData.ToArray());
+            targetSet.ParameterA = result.Item2;
+            targetSet.ParameterB = result.Item1;
+            userResultSet.TargetSets.Add(targetSet);
+            i++;
         }
         BsonDocument document = new BsonDocument
         {
@@ -219,7 +283,33 @@ public class NetworkManagerEvents : NetworkManager
             {"TargetInfos", arr}
         };
         collection.InsertOne(document);
-        // Recalculate values and put them into bag (ekhm...) I mean into database
+        var resultDb = MongoDBConnector.GetInstance().GetResultsDatabase();
+        resultDb.GetCollection<BsonDocument>("Results").InsertOne(userResultSet.ToBsonDocument());
+    }
+
+    private int IsImportantError(List<double> list)
+    {
+        double offset = 1/(double)list.Count;
+        var avg = Avg(list);
+        var idMax = list.IndexOf(list.Max());
+        var nlist = new List<double>(list);
+        nlist.RemoveAt(idMax);
+        var navg = Avg(nlist);
+        if ((1 - (navg / avg)) > offset)
+        {
+            return idMax;
+        }
+        return -1;
+    }
+
+    private double Avg(List<double> list)
+    {
+        double value = 0.0;
+        foreach (var v in list)
+        {
+            value += v;
+        }
+        return value / list.Count;
     }
 
     public override void OnServerConnect(NetworkConnection conn)

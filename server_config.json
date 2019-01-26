@@ -1,5 +1,5 @@
 {
   "ServerPort":"10000",
   "TestGroup":  "Testing1",
-  "ColorSpace": "space_log_0,005_0,0001"
+  "ColorSpace": "space_log_0,001_0,0001"
 }
